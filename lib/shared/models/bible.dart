@@ -16,9 +16,7 @@ class Bible {
   factory Bible.fromJsonBookList(List<dynamic> list) {
     return Bible(
       books: List<Book>.from(
-        list.map(
-          (x) => Book.fromMap(x),
-        ),
+        list.map((x) => Book.fromMap(x)),
       ),
     );
   }

@@ -33,7 +33,6 @@ class Book {
           ]),
         )
         .toList();
-    final type = list.runtimeType;
 
     return Book(
       name: map['name'] ?? '',

@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_biblia/shared/models/bible.dart';
 
 class BookProvider extends ChangeNotifier {

@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_biblia/shared/provider/book_provider.dart';
-import 'package:flutter_biblia/shared/routes.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter_biblia/pages/home_page.dart';
+import 'package:flutter_biblia/shared/provider/book_provider.dart';
+import 'package:flutter_biblia/shared/provider/navigation_provider.dart';
+import 'package:flutter_biblia/shared/routes.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 
@@ -17,13 +18,17 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<BookProvider>(
           create: (context) => BookProvider(),
-        )
-      ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
         ),
+        ChangeNotifierProvider<NavigationProvider>(
+          create: (context) => NavigationProvider(),
+        ),
+      ],
+      child: FluentApp(
+        title: 'Bíblia Demo',
+        theme: ThemeData(
+
+        ),
+        debugShowCheckedModeBanner: false,
         routes: {AppRoutes.home: (ctx) => const HomePage()},
       ),
     );
