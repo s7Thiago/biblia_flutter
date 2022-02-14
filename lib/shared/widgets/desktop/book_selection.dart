@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_biblia/shared/models/bible.dart';
@@ -26,15 +24,28 @@ class BookSelection extends StatelessWidget {
         if (snapshot.hasData) {
           return NavigationView(
             pane: NavigationPane(
+
               selected: navigationProvider.index,
               onChanged: (currentIndex) {
                 navigationProvider.changeIndex = currentIndex;
+                navigationProvider.changeChapterIndex = 0;
               },
               items: [
                 ...snapshot.data!.books
                     .map(
                       (book) => PaneItem(
-                        icon: const Icon(FluentIcons.book_answers),
+                        icon: CircleAvatar(
+                          backgroundColor: Color(0xFF9a9a9a),
+                          child: Center(
+                            child: Text(
+                              book.abbrev.toUpperCase(),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFFFFFFFF)
+                              ),
+                            ),
+                          ),
+                        ),
                         title: Text(book.name),
                       ),
                     )

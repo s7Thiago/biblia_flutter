@@ -1,6 +1,7 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter_biblia/shared/models/book.dart';
 import 'package:flutter_biblia/shared/provider/navigation_provider.dart';
+import 'package:flutter_biblia/shared/widgets/desktop/verses_list.dart';
 import 'package:provider/provider.dart';
 
 class ChapterSelection extends StatelessWidget {
@@ -18,6 +19,8 @@ class ChapterSelection extends StatelessWidget {
       listen: true,
     );
 
+    final versesRef = book.chapters[navigationProvider.chapterIndex].verses;
+
     int itemIndex = 0;
 
     return NavigationView(
@@ -31,11 +34,19 @@ class ChapterSelection extends StatelessWidget {
             (chapter) {
               itemIndex++;
               return PaneItem(
-                icon: const Icon(FluentIcons.book_answers),
-                title: Text('${book.name} $itemIndex'),
+                icon: Text('$itemIndex°'),
+                title: Text('versículo'),
               );
             },
           ),
+        ],
+      ),
+      content: NavigationBody(
+        index: navigationProvider.chapterIndex,
+        children: [
+          ...List.generate(versesRef.length, (index) {
+            return VersesList(verses: versesRef);
+          })
         ],
       ),
     );

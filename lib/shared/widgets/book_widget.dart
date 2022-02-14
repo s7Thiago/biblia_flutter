@@ -5,7 +5,7 @@ class BookWidget extends StatelessWidget {
   final Color color;
   final Book book;
 
-  BookWidget({
+  const BookWidget({
     Key? key,
     this.color = Colors.black,
     required this.book,
@@ -15,7 +15,7 @@ class BookWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Acrylic(
       child: Container(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
         width: 150,
         height: 150,
@@ -25,9 +25,9 @@ class BookWidget extends StatelessWidget {
           style: const TextStyle(
               color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
         ),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           // color: color,
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
       ),
     );
