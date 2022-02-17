@@ -13,6 +13,7 @@ class VersesList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: verses.length,
+      physics: const BouncingScrollPhysics(),
       shrinkWrap: true,
       itemBuilder: (context, index) {
         return Padding(

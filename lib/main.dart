@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       child: FluentApp(
         title: 'Bíblia Demo',
         theme: ThemeData(
-
+          brightness: Brightness.dark,
         ),
         debugShowCheckedModeBanner: false,
         routes: {AppRoutes.home: (ctx) => const HomePage()},
